@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>To Do List</title>
+</head>
+
+<body class="flex flex-col gap-4 bg-(--primary-bg) p-4 sm:p-6 min-h-dscreen">
+    <h1 class="text-(--primary-text) text-center text-lg sm:text-xl md:text-3xl font-bold sm:mb-4">Aplikasi To Do List
+    </h1>
+    <header class="flex flex-row items-center gap-6 md:gap-10 w-full p-4 sm:p-6 lg:p-8 bg-(--container-bg) rounded-lg">
+        <i class="fa-solid fa-user text-2xl sm:text-3xl md:text-4xl text-(--btn-secondary)"></i>
+        <div class="flex-1 flex flex-col sm:flex-row sm:items-center">
+            <div class="flex-1">
+                <h2 class="text-(--primary-text) text-lg sm:text-xl md:text-2xl font-bold">Reynaldiansyah Husain</h2>
+                <p class="text-(--disabled-text)">Fullstack Developer</p>
+            </div>
+            <time id="current-date" class="text-(--secondary-text)"></time>
+        </div>
+    </header>
+    <main class="flex flex-col gap-4">
+        <!-- Input field -->
+        <section class="bg-(--container-bg) p-4 sm:p-6 rounded-lg">
+            <header class="flex items-center gap-2 border-b border-(--outline-border) pb-4 mb-2">
+                <i class="fa-solid fa-file-circle-plus text-xl md:text-2xl text-(--btn-default)"></i>
+                <h3 class="text-(--primary-text) text-lg font-medium">Tambahkan Tugas</h3>
+            </header>
+            <form class="flex flex-col gap-2 p-2" id="form-task">
+                <div>
+                    <label class="text-(--primary-text) font-medium">Masukan detail tugas</label>
+                    <textarea class="text-(--primary-text) w-full border border-(--outline-border) rounded-lg py-1 px-2"
+                        name="input-task" id="input-task" placeholder="Tuliskan tugas disini..." rows="3"></textarea>
+                </div>
+                <div class="flex flex-col md:flex-row gap-2">
+                    <div class="w-full md:w-2/5">
+                        <span class="text-(--primary-text) font-medium">Prioritas</span>
+                        <div class="flex items-center gap-2 text-center">
+                            <label class="w-full cursor-pointer">
+                                <input type="radio" name="priority" value="low"
+                                    class="sr-only peer text-(--primary-text)">
+                                <div
+                                    class="bg-green-50 border peer-checked:bg-(--success-bg) hover:bg-(--success-bg) text-(--success-secondary) rounded-lg p-2">
+                                    Low
+                                </div>
+                            </label>
+                            <label class="w-full cursor-pointer">
+                                <input type="radio" name="priority" value="medium" class="sr-only peer">
+                                <div
+                                    class="bg-yellow-50 border peer-checked:bg-(--warning-bg) hover:bg-(--warning-bg) text-(--warning-secondary) rounded-lg p-2">
+                                    Medium
+                                </div>
+                            </label>
+                            <label class="w-full cursor-pointer">
+                                <input type="radio" name="priority" value="high" class="sr-only peer">
+                                <div
+                                    class="bg-red-50 border peer-checked:bg-(--error-bg) hover:bg-(--error-bg) text-(--error-secondary) rounded-lg p-2">
+                                    High
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="flex flex-col w-full md:w-2/5">
+                        <label for="deadline" class="text-(--primary-text) font-medium">Deadline</label>
+                        <input name="deadline" id="deadline" type="date" class="p-2 bg-white border border-(--outline-border) rounded-lg">
+                    </div>
+                    <div class="w-full md:w-1/5 md:self-end">
+                        <button
+                            class="w-full p-2 bg-(--btn-default) text-white rounded-lg cursor-pointer hover:bg-(--btn-secondary)"
+                            type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <div class="flex flex-col lg:flex-row gap-4">
+            <!-- To do list field -->
+            <section class="w-full lg:w-2/3 bg-(--container-bg) min-h-120 p-4 sm:p-6 rounded-lg">
+                <header class="flex items-center gap-2 border-b border-(--outline-border) pb-4">
+                    <i class="fa-solid fa-list-ul text-xl md:text-2xl text-(--btn-default)"></i>
+                    <h2 class="text-(--primary-text) text-lg font-medium">List Tugas</h2>
+                </header>
+                <ul class="overflow-y-auto max-h-96" id="list-task">
+                    
+                </ul>
+            </section>
+            <aside class="w-full lg:w-1/3 flex flex-col gap-4">
+                <!-- Done task list field -->
+                <section class="h-58 bg-(--container-bg) p-4 sm:p-6 rounded-lg">
+                    <header class="flex items-center gap-2 border-b border-(--outline-border) pb-4">
+                        <i class="fa-solid fa-circle-check text-xl md:text-2xl text-(--success-default)"></i>
+                        <h3 class="text-(--primary-text) text-lg font-medium">List Tugas Selesai</h3>
+                    </header>
+                    <ul class="overflow-y-auto" id="list-done-task">
+
+                    </ul>
+                </section>
+                <!-- Overdue task list field -->
+                <section class="h-58 bg-(--container-bg) p-4 sm:p-6 rounded-lg">
+                    <header class="flex items-center gap-2 border-b border-(--outline-border) pb-4">
+                        <i class="fa-solid fa-clock text-xl md:text-2xl text-(--error-default)"></i>
+                        <h3 class="text-(--primary-text) text-lg font-medium">List Tugas Terlambat</h3>
+                    </header>
+                    <ul class="overflow-y-auto max-h-40" id="list-overdue-task">
+
+                    </ul>
+                </section>
+            </aside>
+        </div>
+
+    </main>
+
+    <script src="/js/main.js" type="module"></script>
+</body>
+
+</html>

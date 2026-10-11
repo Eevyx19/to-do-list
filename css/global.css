@@ -1,0 +1,35 @@
+:root {
+    --primary-bg: rgb(237, 242, 255);
+    --container-bg: rgb(255, 255, 255);
+
+    --primary-text: rgb(0, 0, 0);
+    --secondary-text: rgb(90, 90, 90);
+    --disabled-text: rgb(140, 140, 140);
+
+    --btn-default: rgb(0, 69, 255);
+    --btn-secondary: rgb(12, 62, 198);
+    --btn-bg: rgb(165, 189, 255);
+
+    --success-default: rgb(0, 201, 67);
+    --success-secondary: rgb(30, 150, 70);
+    --success-bg: rgb(164, 255, 194);
+
+    --error-default: rgb(227, 1, 12);
+    --error-secondary: rgb(182, 31, 38);
+    --error-bg: rgb(255, 165, 169);
+
+    --warning-default: rgb(200, 173, 0);
+    --warning-secondary: rgb(151, 133, 18);
+    --warning-bg: rgb(255, 242, 160);
+
+    --outline-border: rgb(148, 148, 148);
+}
+
+.dark {
+    --primary-bg: rgb(6, 18, 46);
+    --container-bg: rgb(27, 37, 67);
+
+    --primary-text: rgb(255, 255, 255);
+    --secondary-text: rgb(205, 205, 205);
+    --disabled-text: rgb(155, 155, 155);
+}
