@@ -8,6 +8,7 @@ const listTask = document.getElementById("list-task")
 const doneTask = document.getElementById("list-done-task")
 const overdueTask = document.getElementById("list-overdue-task")
 const today = document.getElementById("current-date")
+const btnDeleteAll = document.getElementById("btn-delete-all")
 const currentDate = new Date()
 today.textContent = formatDate(currentDate)
 
@@ -36,15 +37,15 @@ form.addEventListener('submit', (e) => {
 
     const deadlineDate = new Date(`${deadline}T23:59:59`)
 
-    if (!task) {
-        alert("Detail tugas harus dimasukan")
+    if (!task || !priority || !deadline) {
+        alert("Semua field perlu di isi")
         return
     }
 
     const toDoList = {
         id: Date.now(),
         task: task,
-        priority: priority || "low",
+        priority: priority,
         currentDate: currentDate,
         updateDate: currentDate,
         deadlineDate: deadlineDate,
@@ -58,6 +59,10 @@ form.addEventListener('submit', (e) => {
 
     saveTask(tasks)
     renderAllTask()
+})
+
+btnDeleteAll.addEventListener("click", () => {
+    clearAllTasks()
 })
 
 //Render To Do List
@@ -146,6 +151,15 @@ function deleteTask(id) {
     renderAllTask()
 }
 
+//Delete All Task
+function clearAllTasks() {
+    tasks = []
+
+    localStorage.removeItem(tasks);
+
+    renderAllTask();
+}
+
 //Checkbox Task
 function checkBox(id) {
     const taskCompleted = tasks.find(item => item.id === id)
@@ -167,4 +181,5 @@ function renderAllTask() {
     renderOverdueTask()
 }
 
+console.log(tasks)
 renderAllTask()

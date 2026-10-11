@@ -97,11 +97,15 @@
         <div class="flex flex-col lg:flex-row gap-4">
             <!-- To do list field -->
             <section class="w-full lg:w-2/3 bg-(--container-bg) min-h-200 p-4 sm:p-6 rounded-lg">
-                <header class="flex items-center gap-2 border-b border-(--outline-border) pb-4 mb-2">
-                    <i class="fa-solid fa-list-ul text-xl md:text-2xl text-(--btn-default)"></i>
-                    <h2 class="text-(--primary-text) text-lg font-medium">List Tugas</h2>
+                <header class="flex items-center justify-between gap-2 border-b border-(--outline-border) pb-4 mb-2">
+                    <div class="flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-list-ul text-xl md:text-2xl text-(--btn-default)"></i>
+                        <h2 class="text-(--primary-text) text-lg font-medium">List Tugas</h2>
+                    </div>
+                    <button class="p-2 bg-(--error-default) rounded-lg cursor-pointer hover:bg-(--error-secondary) text-white"
+                        type="button" id="btn-delete-all"><i class="fa-regular fa-trash-can"></i> Hapus Semua</button>
                 </header>
-                <ul class="overflow-y-auto max-h-200 flex flex-col gap-2" id="list-task">
+                <ul class="overflow-y-auto scrollbar-thin max-h-170 flex flex-col gap-2" id="list-task">
 
                 </ul>
             </section>
@@ -112,7 +116,7 @@
                         <i class="fa-solid fa-circle-check text-xl md:text-2xl text-(--success-default)"></i>
                         <h3 class="text-(--primary-text) text-lg font-medium">List Tugas Selesai</h3>
                     </header>
-                    <ul class="overflow-y-auto max-h-75 flex flex-col gap-2" id="list-done-task">
+                    <ul class="overflow-y-auto scrollbar-thin max-h-75 flex flex-col gap-2" id="list-done-task">
 
                     </ul>
                 </section>
@@ -122,7 +126,7 @@
                         <i class="fa-solid fa-clock text-xl md:text-2xl text-(--error-default)"></i>
                         <h3 class="text-(--primary-text) text-lg font-medium">List Tugas Terlambat</h3>
                     </header>
-                    <ul class="overflow-y-auto max-h-75 flex flex-col gap-2" id="list-overdue-task">
+                    <ul class="overflow-y-auto scrollbar-thin max-h-75 flex flex-col gap-2" id="list-overdue-task">
 
                     </ul>
                 </section>
