@@ -33,3 +33,30 @@
     --secondary-text: rgb(205, 205, 205);
     --disabled-text: rgb(155, 155, 155);
 }
+
+@keyframes toggleOn {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(130%);
+    }
+}
+
+@theme {
+    --animate-toggle-on: toggleOn 300ms ease-in-out forwards;
+}
+
+#theme+label+span .fa-sun {
+    display: none;
+}
+
+/* Saat checkbox dicentang */
+#theme:checked+label+span .fa-moon {
+    display: none;
+}
+
+#theme:checked+label+span .fa-sun {
+    display: inline-block;
+}

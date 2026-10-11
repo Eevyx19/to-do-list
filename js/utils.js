@@ -1,13 +1,13 @@
 export function formatDate(date) {
     const dateObject = new Date(date)
     const options = {
-        weekday: "long",
+        weekday: "short",
         day: "numeric",
-        month: "long",
+        month: "short",
         year: "numeric"
     }
 
-    return dateObject.toLocaleDateString("id-ID", options)
+    return dateObject.toLocaleDateString("en-ID", options)
 
 }
 

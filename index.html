@@ -13,8 +13,22 @@
 </head>
 
 <body class="flex flex-col gap-4 bg-(--primary-bg) p-4 sm:p-6 min-h-dscreen">
-    <h1 class="text-(--primary-text) text-center text-lg sm:text-xl md:text-3xl font-bold sm:mb-4">Aplikasi To Do List
-    </h1>
+    <div class="flex flex-col justify-center items-center">
+        <h1 class="text-(--primary-text) text-lg text-center sm:text-xl md:text-3xl font-bold sm:mb-4">Aplikasi To Do
+            List
+        </h1>
+        <div class="relative w-[60px] h-[30px] md:w-[80px] md:h-[40px]">
+            <input type="checkbox" id="theme" class="peer sr-only">
+            <label for="theme"
+                class="absolute inset-0 cursor-pointer rounded-full border border-(--outline-border) bg-slate-300 peer-checked:bg-(--btn-secondary)">
+            </label>
+            <span
+                class="pointer-events-none absolute left-[3px] md:left-[4px] top-[3px] md:top-[4px] flex h-6 w-6 items-center justify-center rounded-full bg-(--container-bg) transition-transform duration-300 ease-in-out peer-checked:translate-x-[30px] md:left-[3px] md:top-[3px] md:h-8 md:w-8 md:peer-checked:translate-x-[40px]">
+                <i class="fa-regular fa-moon text-(--primary-text)"></i>
+                <i class="fa-regular fa-sun text-(--primary-text)"></i>
+            </span>
+        </div>
+    </div>
     <header class="flex flex-row items-center gap-6 md:gap-10 w-full p-4 sm:p-6 lg:p-8 bg-(--container-bg) rounded-lg">
         <i class="fa-solid fa-user text-2xl sm:text-3xl md:text-4xl text-(--btn-secondary)"></i>
         <div class="flex-1 flex flex-col sm:flex-row sm:items-center">
@@ -68,7 +82,8 @@
                     </div>
                     <div class="flex flex-col w-full md:w-2/5">
                         <label for="deadline" class="text-(--primary-text) font-medium">Deadline</label>
-                        <input name="deadline" id="deadline" type="date" class="p-2 bg-white border border-(--outline-border) rounded-lg">
+                        <input name="deadline" id="deadline" type="date"
+                            class="p-2 bg-white border border-(--outline-border) rounded-lg">
                     </div>
                     <div class="w-full md:w-1/5 md:self-end">
                         <button
@@ -81,33 +96,33 @@
 
         <div class="flex flex-col lg:flex-row gap-4">
             <!-- To do list field -->
-            <section class="w-full lg:w-2/3 bg-(--container-bg) min-h-120 p-4 sm:p-6 rounded-lg">
-                <header class="flex items-center gap-2 border-b border-(--outline-border) pb-4">
+            <section class="w-full lg:w-2/3 bg-(--container-bg) min-h-200 p-4 sm:p-6 rounded-lg">
+                <header class="flex items-center gap-2 border-b border-(--outline-border) pb-4 mb-2">
                     <i class="fa-solid fa-list-ul text-xl md:text-2xl text-(--btn-default)"></i>
                     <h2 class="text-(--primary-text) text-lg font-medium">List Tugas</h2>
                 </header>
-                <ul class="overflow-y-auto max-h-96" id="list-task">
-                    
+                <ul class="overflow-y-auto max-h-200 flex flex-col gap-2" id="list-task">
+
                 </ul>
             </section>
             <aside class="w-full lg:w-1/3 flex flex-col gap-4">
                 <!-- Done task list field -->
-                <section class="h-58 bg-(--container-bg) p-4 sm:p-6 rounded-lg">
-                    <header class="flex items-center gap-2 border-b border-(--outline-border) pb-4">
+                <section class="h-98 bg-(--container-bg) p-4 sm:p-6 rounded-lg">
+                    <header class="flex items-center gap-2 border-b border-(--outline-border) pb-4 mb-2">
                         <i class="fa-solid fa-circle-check text-xl md:text-2xl text-(--success-default)"></i>
                         <h3 class="text-(--primary-text) text-lg font-medium">List Tugas Selesai</h3>
                     </header>
-                    <ul class="overflow-y-auto" id="list-done-task">
+                    <ul class="overflow-y-auto max-h-75 flex flex-col gap-2" id="list-done-task">
 
                     </ul>
                 </section>
                 <!-- Overdue task list field -->
-                <section class="h-58 bg-(--container-bg) p-4 sm:p-6 rounded-lg">
-                    <header class="flex items-center gap-2 border-b border-(--outline-border) pb-4">
+                <section class="h-98 bg-(--container-bg) p-4 sm:p-6 rounded-lg">
+                    <header class="flex items-center gap-2 border-b border-(--outline-border) pb-4 mb-2">
                         <i class="fa-solid fa-clock text-xl md:text-2xl text-(--error-default)"></i>
                         <h3 class="text-(--primary-text) text-lg font-medium">List Tugas Terlambat</h3>
                     </header>
-                    <ul class="overflow-y-auto max-h-40" id="list-overdue-task">
+                    <ul class="overflow-y-auto max-h-75 flex flex-col gap-2" id="list-overdue-task">
 
                     </ul>
                 </section>
